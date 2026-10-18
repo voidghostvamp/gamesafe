@@ -62,10 +62,6 @@ h1 { font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1.08; letter-spacing: -2p
 
 .primary-button:hover, .secondary-button:hover { transform: translateY(-2px); }
 
-.games-section { border-top: 1px solid #27272a; padding: 36px 0 70px; }
-
-.games-section h2 { font-size: 1.7rem; }
-
 @media (max-width: 700px) {
     .site-header { padding: 16px 5%; }
     .header-container { flex-wrap: wrap; gap: 16px; }
