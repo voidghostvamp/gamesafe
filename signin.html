@@ -4,127 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#08080c">
+    <meta name="description" content="Sign in to GameSafe and explore your gaming world.">
     <title>Sign In | GameSafe</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
 </head>
+<body>
 
-<body class="auth-page">
-
-    <header class="auth-header">
-        <a href="signin.html" class="brand">gamesafe<span>.</span></a>
-
-        <p>PLAY SMART. PLAY SAFE.</p>
+    <header class="header">
+        <a href="index.html" class="logo">GameSafe</a>
+        <a href="index.html" class="back-link">Back to Home</a>
     </header>
 
-    <main class="auth-main">
+    <main class="signin-container">
+        <section class="signin-card">
 
-        <section class="auth-card">
+            <p class="eyebrow">WELCOME BACK</p>
 
-            <div class="auth-heading">
-                <span class="auth-label">WELCOME BACK</span>
+            <h1>Enter Your World.</h1>
+            <p class="signin-description">
+                Sign in to continue exploring your gaming universe.
+            </p>
 
-                <h1>Enter your <span>world.</span></h1>
+            <form class="signin-form" id="signin-form">
 
-                <p>
-                    Sign in to discover games, explore new worlds,
-                    and play responsibly.
-                </p>
-            </div>
+                <label for="email">Email Address</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    required
+                >
 
-            <form class="auth-form" id="signin-form">
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required
+                >
 
-                <div class="form-group">
-                    <label for="email">Email address</label>
-
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="you@example.com"
-                        autocomplete="email"
-                        required
-                    >
-                </div>
-
-                <div class="form-group">
-                    <label for="password">Password</label>
-
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Enter your password"
-                        autocomplete="current-password"
-                        required
-                    >
-                </div>
-
-                <div class="auth-options">
-                    <label class="remember-option">
-                        <input type="checkbox" id="remember">
-                        <span>Remember me</span>
-                    </label>
-
-                    <a href="#" id="forgot-password">
-                        Forgot password?
-                    </a>
-                </div>
-
-                <button type="submit" class="auth-submit">
-                    Sign in <span aria-hidden="true">→</span>
+                <button type="submit" class="signin-button">
+                    Sign In
                 </button>
-
-                <p id="auth-message" class="auth-message" role="status"></p>
 
             </form>
 
-            <div class="auth-divider">
-                <span>NEW TO GAMESAFE?</span>
-            </div>
-
-            <a href="signup.html" class="create-account">
-                Create an account <span aria-hidden="true">→</span>
-            </a>
-
-            <p class="auth-footer">
-                By continuing, you agree to use GameSafe responsibly.
+            <p class="signup-text">
+                New to GameSafe?
+                <a href="signup.html">Create an account</a>
             </p>
 
         </section>
-
-        <p class="auth-bottom">
-            YOUR NEXT ADVENTURE STARTS HERE.
-        </p>
-
     </main>
-
-    <script>
-        const signinForm = document.getElementById("signin-form");
-        const authMessage = document.getElementById("auth-message");
-
-        signinForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            authMessage.textContent =
-                "Sign-in is not connected yet. Authentication setup is needed.";
-
-            authMessage.classList.add("is-visible");
-        });
-
-        document.getElementById("forgot-password").addEventListener(
-            "click",
-            function (event) {
-                event.preventDefault();
-
-                authMessage.textContent =
-                    "Password recovery will be available after authentication is set up.";
-
-                authMessage.classList.add("is-visible");
-            }
-        );
-    </script>
 
 </body>
 </html>
