@@ -151,6 +151,7 @@ section {
 ================================ */
 
 .eyebrow {
+    margin-top: 32px;
     margin-bottom: 15px;
     color: #b49aff;
     font-size: 11px;
