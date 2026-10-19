@@ -59,6 +59,10 @@ img {
     background: var(--purple);
 }
 
+/* ================================
+   MAIN NAVIGATION
+================================ */
+
 .site-header,
 .navbar {
     min-height: 76px;
@@ -131,6 +135,8 @@ img {
     color: #fff;
 }
 
+/* Shared page layout */
+
 main {
     width: min(var(--content-width), 85%);
     margin: 0 auto;
@@ -140,6 +146,10 @@ section {
     scroll-margin-top: 100px;
 }
 
+/* ================================
+   EYEBROW LABELS
+================================ */
+
 .eyebrow {
     margin-bottom: 15px;
     color: #b49aff;
@@ -147,6 +157,10 @@ section {
     font-weight: 800;
     letter-spacing: 2.3px;
 }
+
+/* ================================
+   HOMEPAGE HERO
+================================ */
 
 .hero-section {
     min-height: 480px;
@@ -202,6 +216,8 @@ section {
     gap: 13px;
 }
 
+/* Buttons */
+
 .button,
 .primary-button,
 .secondary-button {
@@ -242,6 +258,10 @@ section {
 .secondary-button:hover {
     background: #171321;
 }
+
+/* ================================
+   ABOUT AND PRINCIPLES
+================================ */
 
 .about-section,
 .principles-section {
@@ -305,6 +325,10 @@ section {
     line-height: 1.8;
 }
 
+/* ================================
+   HOMEPAGE CLOSING SECTION
+================================ */
+
 .closing-section {
     padding: 75px 25px;
     margin: 55px 0;
@@ -318,6 +342,10 @@ section {
     margin-bottom: 25px;
     color: var(--muted);
 }
+
+/* ================================
+   FOOTER
+================================ */
 
 .site-footer,
 .footer {
@@ -349,6 +377,10 @@ section {
     color: #77758c;
 }
 
+/* ================================
+   GAMES PAGE SECTION HEADINGS
+================================ */
+
 .section-heading {
     margin-bottom: 25px;
     display: flex;
@@ -374,10 +406,17 @@ section {
     font-size: 14px;
 }
 
-.games-section,
+/* Give the games collection more space below navigation */
+
+.games-section {
+    padding-top: 100px;
+}
+
 .categories-section {
     padding-top: 65px;
 }
+
+/* Collection count, if used elsewhere */
 
 .collection-count {
     padding: 8px 11px;
@@ -389,6 +428,10 @@ section {
     letter-spacing: 1.4px;
     white-space: nowrap;
 }
+
+/* ================================
+   GAME CARDS
+================================ */
 
 .game-grid {
     display: grid;
@@ -440,6 +483,8 @@ section {
     left: -55px;
     background: rgba(255, 255, 255, 0.08);
 }
+
+/* Game artwork backgrounds */
 
 .art-adventure {
     background: linear-gradient(145deg, #7f9dba, #314f75 48%, #1c1c37);
@@ -525,6 +570,10 @@ section {
     font-size: 10px;
 }
 
+/* ================================
+   GAME GENRE CARDS
+================================ */
+
 .category-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -553,6 +602,7 @@ section {
     color: #ad8aff;
     font-size: 26px;
     text-align: center;
+    flex-shrink: 0;
 }
 
 .category-card > span:nth-child(2) {
@@ -570,6 +620,10 @@ section {
 .category-card:hover .category-arrow {
     transform: translate(3px, -3px);
 }
+
+/* ================================
+   RESPONSIBLE GAMING PANEL
+================================ */
 
 .responsible-panel {
     margin: 65px 0 55px;
@@ -618,6 +672,10 @@ section {
     line-height: 1.8;
 }
 
+/* ================================
+   SHARED INPUTS
+================================ */
+
 input,
 textarea,
 select {
@@ -642,6 +700,8 @@ textarea::placeholder {
     color: #77758c;
 }
 
+/* Keyboard accessibility */
+
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -651,10 +711,15 @@ select:focus-visible {
     outline-offset: 4px;
 }
 
+/* ================================
+   TABLET LAYOUT
+================================ */
+
 @media (max-width: 950px) {
     .site-header,
     .navbar {
-        padding: 0 5%;
+        padding-left: 5%;
+        padding-right: 5%;
     }
 
     main {
@@ -682,6 +747,10 @@ select:focus-visible {
         border-left: none;
     }
 }
+
+/* ================================
+   MOBILE LAYOUT
+================================ */
 
 @media (max-width: 620px) {
     .site-header,
@@ -727,6 +796,13 @@ select:focus-visible {
         grid-template-columns: 1fr;
     }
 
+    /* Stack heading content on smaller screens */
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
     .game-grid {
         gap: 12px;
     }
@@ -769,6 +845,8 @@ select:focus-visible {
     }
 }
 
+/* Smaller phones */
+
 @media (max-width: 360px) {
     .game-grid {
         grid-template-columns: 1fr;
@@ -783,7 +861,7 @@ select:focus-visible {
         align-items: stretch;
     }
 }
-    
+
 /* ================================
    GAMESAFE AUTHENTICATION PAGE
 ================================ */
@@ -803,7 +881,7 @@ select:focus-visible {
         "Segoe UI", sans-serif;
 }
 
-/* Header */
+/* Authentication header */
 
 .auth-header {
     width: min(1200px, calc(100% - 48px));
@@ -834,10 +912,10 @@ select:focus-visible {
     letter-spacing: 2px;
 }
 
-/* Main layout */
+/* Authentication layout */
 
 .auth-main {
-    width: min(100% - 32px, 480px);
+    width: min(calc(100% - 32px), 480px);
     margin: 0 auto;
     padding: 64px 0 35px;
 }
@@ -852,7 +930,7 @@ select:focus-visible {
         0 0 55px rgba(139, 92, 246, 0.055);
 }
 
-/* Heading */
+/* Authentication heading */
 
 .auth-label {
     display: inline-block;
@@ -882,7 +960,7 @@ select:focus-visible {
     line-height: 1.8;
 }
 
-/* Form */
+/* Authentication form */
 
 .auth-form {
     margin-top: 32px;
@@ -993,7 +1071,7 @@ select:focus-visible {
     transform: translateY(0);
 }
 
-/* Status message */
+/* Authentication status message */
 
 .auth-message {
     display: none;
@@ -1060,7 +1138,7 @@ select:focus-visible {
     background: rgba(167, 139, 250, 0.06);
 }
 
-/* Footer */
+/* Authentication footer */
 
 .auth-footer {
     margin: 23px 0 0;
@@ -1079,7 +1157,7 @@ select:focus-visible {
     text-align: center;
 }
 
-/* Mobile */
+/* Authentication mobile layout */
 
 @media (max-width: 520px) {
     .auth-header {
@@ -1110,25 +1188,32 @@ select:focus-visible {
     }
 }
 
+/* Respect reduced-motion preferences */
+
 @media (prefers-reduced-motion: reduce) {
+    .button,
+    .primary-button,
+    .secondary-button,
+    .game-card,
+    .category-arrow,
     .auth-submit,
     .form-group input,
     .create-account {
         transition: none;
     }
-}
 
-
-    .section-heading {
-        align-items: flex-start;
-        flex-direction: column;
+    html {
+        scroll-behavior: auto;
     }
 }
 
-/* GameSafe navigation alignment */
+/* ================================
+   NAVBAR ALIGNMENT
+================================ */
+
+/* These rules apply to pages using .navbar */
+
 .navbar {
-    display: flex;
-    align-items: center;
     justify-content: space-between;
     gap: 24px;
     padding-left: max(24px, calc((100% - 1200px) / 2));
@@ -1165,9 +1250,4 @@ select:focus-visible {
         flex: 1 1 100%;
         gap: 12px 20px;
     }
-}
-
-/* Add space below the navigation on the Discover Games page */
-.games-section {
-    padding-top: 64px;
 }
