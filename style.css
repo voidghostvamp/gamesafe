@@ -1125,3 +1125,45 @@ select:focus-visible {
     }
 }
 
+/* GameSafe navigation alignment */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-left: max(24px, calc((100% - 1200px) / 2));
+    padding-right: max(24px, calc((100% - 1200px) / 2));
+}
+
+.navbar .nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    gap: clamp(14px, 2vw, 30px);
+}
+
+.navbar .logo,
+.navbar .nav-button {
+    flex-shrink: 0;
+}
+
+.navbar .nav-links a {
+    white-space: nowrap;
+}
+
+@media (max-width: 850px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+
+    .navbar .nav-links {
+        flex-wrap: wrap;
+        flex: 1 1 100%;
+        gap: 12px 20px;
+    }
+}
+
