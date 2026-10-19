@@ -783,6 +783,342 @@ select:focus-visible {
         align-items: stretch;
     }
 
+    
+/* ================================
+   GAMESAFE AUTHENTICATION PAGE
+================================ */
+
+.auth-page {
+    min-height: 100vh;
+    margin: 0;
+    background:
+        radial-gradient(
+            ellipse at 50% 35%,
+            rgba(132, 92, 255, 0.10),
+            transparent 55%
+        ),
+        #08080c;
+    color: #f7f5ff;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+}
+
+/* Header */
+
+.auth-header {
+    width: min(1200px, calc(100% - 48px));
+    min-height: 82px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.auth-header .brand {
+    color: #f7f5ff;
+    font-size: 27px;
+    font-weight: 850;
+    letter-spacing: -1.5px;
+    text-decoration: none;
+}
+
+.auth-header .brand span {
+    color: #a78bfa;
+}
+
+.auth-header p {
+    color: #9290a3;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+/* Main layout */
+
+.auth-main {
+    width: min(100% - 32px, 480px);
+    margin: 0 auto;
+    padding: 64px 0 35px;
+}
+
+.auth-card {
+    padding: 38px;
+    border: 1px solid rgba(180, 155, 255, 0.19);
+    border-radius: 24px;
+    background: rgba(17, 16, 25, 0.88);
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.3),
+        0 0 55px rgba(139, 92, 246, 0.055);
+}
+
+/* Heading */
+
+.auth-label {
+    display: inline-block;
+    margin-bottom: 17px;
+    color: #b59aff;
+    font-size: 11px;
+    font-weight: 850;
+    letter-spacing: 2.5px;
+}
+
+.auth-heading h1 {
+    margin: 0 0 13px;
+    font-size: clamp(30px, 6vw, 39px);
+    font-weight: 850;
+    letter-spacing: -1.8px;
+    line-height: 1.15;
+}
+
+.auth-heading h1 span {
+    color: #a78bfa;
+}
+
+.auth-heading p {
+    margin: 0;
+    color: #a6a2b5;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Form */
+
+.auth-form {
+    margin-top: 32px;
+}
+
+.form-group {
+    margin-bottom: 21px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 9px;
+    color: #e8e4f5;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-group input {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 49px;
+    padding: 0 15px;
+    border: 1px solid #343142;
+    border-radius: 11px;
+    outline: none;
+    background: #0d0c13;
+    color: #f7f5ff;
+    font: inherit;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input::placeholder {
+    color: #686477;
+}
+
+.form-group input:focus {
+    border-color: #a78bfa;
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.12);
+}
+
+/* Remember me and password recovery */
+
+.auth-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 4px 0 25px;
+}
+
+.remember-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #b6b2c5;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.remember-option input {
+    accent-color: #a78bfa;
+}
+
+.auth-options a {
+    color: #b59aff;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.auth-options a:hover {
+    color: #d1c2ff;
+    text-decoration: underline;
+}
+
+/* Sign-in button */
+
+.auth-submit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 51px;
+    padding: 0 18px;
+    border: 0;
+    border-radius: 11px;
+    background: #a78bfa;
+    color: #100b20;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 850;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.auth-submit span {
+    font-size: 21px;
+}
+
+.auth-submit:hover {
+    background: #bba5ff;
+    box-shadow: 0 8px 28px rgba(167, 139, 250, 0.18);
+    transform: translateY(-1px);
+}
+
+.auth-submit:active {
+    transform: translateY(0);
+}
+
+/* Status message */
+
+.auth-message {
+    display: none;
+    margin: 15px 0 0;
+    padding: 12px;
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    border-radius: 9px;
+    background: rgba(167, 139, 250, 0.07);
+    color: #d4c7ff;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.auth-message.is-visible {
+    display: block;
+}
+
+/* Create account */
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 29px 0 20px;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    flex: 1;
+    height: 1px;
+    background: #302b3c;
+    content: "";
+}
+
+.auth-divider span {
+    color: #777286;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+.create-account {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 48px;
+    padding: 0 15px;
+    border: 1px solid #454052;
+    border-radius: 11px;
+    color: #f0ebff;
+    font-size: 13px;
+    font-weight: 750;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.create-account span {
+    color: #b59aff;
+    font-size: 19px;
+}
+
+.create-account:hover {
+    border-color: #a78bfa;
+    background: rgba(167, 139, 250, 0.06);
+}
+
+/* Footer */
+
+.auth-footer {
+    margin: 23px 0 0;
+    color: #777286;
+    font-size: 11px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.auth-bottom {
+    margin: 28px 0 0;
+    color: #6f687f;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    text-align: center;
+}
+
+/* Mobile */
+
+@media (max-width: 520px) {
+    .auth-header {
+        width: calc(100% - 32px);
+        min-height: 70px;
+    }
+
+    .auth-header .brand {
+        font-size: 24px;
+    }
+
+    .auth-header p {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .auth-main {
+        padding-top: 35px;
+    }
+
+    .auth-card {
+        padding: 25px 21px;
+        border-radius: 19px;
+    }
+
+    .auth-heading h1 {
+        letter-spacing: -1.2px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .auth-submit,
+    .form-group input,
+    .create-account {
+        transition: none;
+    }
+}
+
+
     .section-heading {
         align-items: flex-start;
         flex-direction: column;
