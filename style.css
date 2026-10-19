@@ -331,6 +331,80 @@ h2 {
 
     .hero-actions {
         flex-direction: column;
+
+        
+/* FIX: ABOUT AND PRINCIPLES SECTIONS */
+
+.about-section,
+.principles-section {
+    padding: 75px 0;
+    border-top: 1px solid #27272a;
+}
+
+.about-section h2,
+.principles-section h2 {
+    margin-bottom: 24px;
+}
+
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.principle-card {
+    padding: 26px;
+    background: #111115;
+    border: 1px solid #27272a;
+    border-radius: 14px;
+}
+
+.principle-card h3 {
+    margin-bottom: 12px;
+}
+
+.principle-card p {
+    color: #a1a1aa;
+}
+
+.closing-section {
+    margin: 35px 0 75px;
+    padding: 65px 24px;
+    text-align: center;
+    background: #111115;
+    border: 1px solid #27272a;
+    border-radius: 18px;
+}
+
+.closing-section h2,
+.closing-section p {
+    margin-bottom: 18px;
+}
+
+.site-footer {
+    padding: 35px 6%;
+    text-align: center;
+    border-top: 1px solid #27272a;
+}
+
+.site-footer p {
+    color: #a1a1aa;
+    font-size: 0.9rem;
+    margin-top: 8px;
+}
+
+@media (max-width: 700px) {
+    .principles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-section,
+    .principles-section {
+        padding: 50px 0;
+    }
+}
+
         align-items: stretch;
     }
 }
