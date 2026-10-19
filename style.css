@@ -1376,3 +1376,49 @@ select:focus-visible {
         font-size: 27px;
     }
 }
+
+/* Sign-in page header fix */
+
+.signin-header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 76px;
+    padding: 20px 7%;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.signin-header .logo {
+    display: inline-block;
+    margin: 0;
+    font-size: 22px;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.signin-header .back-link {
+    display: inline-block;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+.signin-container {
+    min-height: calc(100vh - 76px);
+    padding: 24px 20px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+    .signin-header {
+        padding: 18px 20px;
+        gap: 16px;
+    }
+}
