@@ -1169,5 +1169,5 @@ select:focus-visible {
 
 /* Add space below the navigation on the Discover Games page */
 .games-section {
-    padding-top: 48px;
+    padding-top: 64px;
 }
