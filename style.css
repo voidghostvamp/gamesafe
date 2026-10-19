@@ -1252,3 +1252,127 @@ select:focus-visible {
         gap: 12px 20px;
     }
 }
+
+/* GameSafe Sign In Page */
+
+.signin-container {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.signin-card {
+    width: 100%;
+    max-width: 430px;
+    padding: 40px;
+    background: #101117;
+    border: 1px solid #292a39;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.signin-card h1 {
+    margin: 0 0 12px;
+    color: #f4f2ff;
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+.signin-description {
+    margin-bottom: 30px;
+    color: #a4a4b5;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.signin-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signin-form label {
+    margin: 0 0 8px;
+    color: #e8e5f5;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.signin-form input {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 22px;
+    padding: 14px 15px;
+    background: #171823;
+    border: 1px solid #303143;
+    border-radius: 10px;
+    color: #f4f2ff;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.signin-form input:focus {
+    border-color: #a78bfa;
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.12);
+}
+
+.signin-form input::placeholder {
+    color: #747487;
+}
+
+.signin-button {
+    padding: 14px;
+    margin-top: 4px;
+    background: #a78bfa;
+    border: none;
+    border-radius: 10px;
+    color: #08090d;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.signin-button:hover {
+    background: #bba6ff;
+    transform: translateY(-2px);
+}
+
+.signup-text {
+    margin-top: 26px;
+    color: #a4a4b5;
+    font-size: 13px;
+    text-align: center;
+}
+
+.signup-text a {
+    color: #b49aff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.signup-text a:hover {
+    text-decoration: underline;
+}
+
+.back-link {
+    color: #c8c4d8;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: #b49aff;
+}
+
+@media (max-width: 480px) {
+    .signin-card {
+        padding: 28px 22px;
+    }
+
+    .signin-card h1 {
+        font-size: 27px;
+    }
+}
