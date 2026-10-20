@@ -1569,3 +1569,8 @@ body {
         font-size: 25px;
     }
 }
+.navbar {
+    box-shadow:
+        0 8px 35px rgba(167, 139, 250, 0.3),
+        0 0 18px rgba(167, 139, 250, 0.10);
+}
