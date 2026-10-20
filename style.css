@@ -1422,3 +1422,150 @@ select:focus-visible {
         gap: 16px;
     }
 }
+
+/* ================================
+   GAMESAFE UI POLISH
+================================ */
+
+/* Cleaner, more consistent typography */
+body {
+    font-family: Inter, "Segoe UI", Roboto, system-ui, sans-serif;
+    letter-spacing: 0.1px;
+}
+
+/* Main navigation */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    min-height: 82px;
+    background: rgba(8, 9, 13, 0.94);
+    border-bottom: 1px solid rgba(167, 139, 250, 0.14);
+    backdrop-filter: blur(18px);
+}
+
+.navbar .logo {
+    font-size: 27px;
+    font-weight: 850;
+    letter-spacing: -1.3px;
+}
+
+.navbar .nav-links a {
+    font-size: 15px;
+    font-weight: 550;
+    transition: color 0.2s ease;
+}
+
+.navbar .nav-links a:hover,
+.navbar .nav-links a.active {
+    color: #c5adff;
+}
+
+.navbar .nav-button {
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 650;
+    border-radius: 12px;
+}
+
+/* The three information boxes */
+.responsible-panel {
+    margin: 65px 0;
+    padding: 30px 24px;
+    gap: 22px;
+    align-items: stretch;
+    border-radius: 20px;
+    background:
+        radial-gradient(
+            ellipse at top left,
+            rgba(120, 83, 200, 0.09),
+            transparent 65%
+        ),
+        linear-gradient(120deg, #101117, #0c0d13);
+}
+
+.responsible-item {
+    min-width: 0;
+    padding: 10px 14px;
+    gap: 18px;
+    align-items: center;
+}
+
+.responsible-item + .responsible-item {
+    padding-left: 26px;
+    border-left: 1px solid #302a41;
+}
+
+.responsible-icon {
+    width: 56px;
+    height: 56px;
+    flex: 0 0 56px;
+    font-size: 29px;
+    border: 1px solid #57417f;
+    background: rgba(167, 139, 250, 0.09);
+}
+
+.responsible-item > div:last-child {
+    min-width: 0;
+}
+
+.responsible-item h3 {
+    margin-bottom: 9px;
+    color: #f7f5ff;
+    font-size: clamp(18px, 1.2vw, 21px);
+    font-weight: 750;
+    line-height: 1.35;
+    letter-spacing: -0.35px;
+}
+
+.responsible-item p {
+    max-width: 34ch;
+    color: #c0bdce;
+    font-size: clamp(14px, 1vw, 15px);
+    line-height: 1.75;
+}
+
+/* More comfortable spacing on smaller screens */
+@media (max-width: 950px) {
+    .responsible-panel {
+        padding: 26px 18px;
+        gap: 20px;
+    }
+
+    .responsible-item + .responsible-item {
+        padding-left: 10px;
+        border-left: none;
+    }
+}
+
+@media (max-width: 620px) {
+    .navbar {
+        gap: 15px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+
+    .navbar .logo {
+        font-size: 24px;
+    }
+
+    .navbar .nav-links a {
+        font-size: 14px;
+    }
+
+    .responsible-panel {
+        padding: 20px 12px;
+    }
+
+    .responsible-item {
+        padding: 10px 6px;
+        gap: 15px;
+    }
+
+    .responsible-icon {
+        width: 48px;
+        height: 48px;
+        flex-basis: 48px;
+        font-size: 25px;
+    }
+}
