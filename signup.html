@@ -1,0 +1,108 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#08090d">
+
+    <title>Create Account — GameSafe</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="signin-page">
+
+    <header class="signin-header">
+        <a href="index.html" class="signin-logo">GameSafe<span>.</span></a>
+        <a href="index.html" class="back-home">Back to home <span>↗</span></a>
+    </header>
+
+    <main class="signin-main">
+        <section class="signin-card signup-card">
+
+            <div class="signin-icon">G</div>
+
+            <p class="signin-eyebrow">JOIN THE COMMUNITY</p>
+
+            <h1>Create your <span>account.</span></h1>
+
+            <p class="signin-description">
+                Your gaming world starts here.
+            </p>
+
+            <form id="signup-form">
+
+                <label for="username">Username</label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Choose a username"
+                    autocomplete="username"
+                    minlength="3"
+                    maxlength="20"
+                    required
+                >
+
+                <label for="email">Email address</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    required
+                >
+
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Create a password"
+                    autocomplete="new-password"
+                    minlength="8"
+                    required
+                >
+
+                <label for="confirm-password">Confirm password</label>
+                <input
+                    type="password"
+                    id="confirm-password"
+                    name="confirm-password"
+                    placeholder="Enter your password again"
+                    autocomplete="new-password"
+                    minlength="8"
+                    required
+                >
+
+                <button type="submit" class="signin-button">
+                    Create account <span>→</span>
+                </button>
+
+                <p id="signup-message" role="status"></p>
+
+            </form>
+
+            <p class="signin-footer">
+                Already have an account?
+                <a href="signin.html">Sign in</a>
+            </p>
+
+            <p class="signin-note">
+                Discover games. Play responsibly.
+            </p>
+
+        </section>
+    </main>
+
+    <script src="signup.js"></script>
+
+</body>
+</html>
+```
