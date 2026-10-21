@@ -1,0 +1,70 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#08090d">
+    <title>Sign In — GameSafe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="signin-page">
+
+    <header class="signin-header">
+        <a href="index.html" class="signin-logo">GameSafe<span>.</span></a>
+        <a href="index.html" class="back-home">Back to home <span>↗</span></a>
+    </header>
+
+    <main class="signin-main">
+        <section class="signin-card">
+            <div class="signin-icon">G</div>
+
+            <p class="signin-eyebrow">WELCOME BACK</p>
+            <h1>Enter your <span>gaming world.</span></h1>
+            <p class="signin-description">
+                Sign in to continue your GameSafe journey.
+            </p>
+
+            <form id="signin-form">
+                <label for="email">Email address</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    required
+                >
+
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <button type="submit" class="signin-button">
+                    Sign in <span>→</span>
+                </button>
+
+                <p id="signin-message" role="status"></p>
+            </form>
+
+            <p class="signin-footer">
+                New to GameSafe? <a href="signup.html">Create an account</a>
+            </p>
+
+            <p class="signin-note">
+                Your gaming world. Your space. Play responsibly.
+            </p>
+        </section>
+    </main>
+
+    <script src="signin.js"></script>
+</body>
+</html>
+```
