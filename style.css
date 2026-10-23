@@ -504,6 +504,7 @@ section {
 }
 
 .art-label {
+    z-index: 2;
     position: absolute;
     top: 13px;
     left: 13px;
