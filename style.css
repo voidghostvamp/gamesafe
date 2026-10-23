@@ -1,4 +1,3 @@
-
 :root {
     --bg: #08090d;
     --surface: #101117;
@@ -13,8 +12,17 @@
     --content-width: 1200px;
 }
 
-* {
+/* ================================
+   RESET AND SHARED DEFAULTS
+================================ */
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
+}
+
+* {
     margin: 0;
     padding: 0;
 }
@@ -65,15 +73,18 @@ img {
 
 .site-header,
 .navbar {
-    min-height: 76px;
-    padding: 0 7.5%;
-    display: flex;
-    align-items: center;
-    background: rgba(8, 9, 13, 0.96);
-    border-bottom: 1px solid #20202c;
     position: sticky;
     top: 0;
     z-index: 100;
+    min-height: 82px;
+    padding: 0 max(24px, calc((100% - var(--content-width)) / 2));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background: rgba(8, 9, 13, 0.94);
+    border-bottom: 1px solid rgba(167, 139, 250, 0.14);
+    box-shadow: 0 8px 35px rgba(167, 139, 250, 0.12);
     backdrop-filter: blur(18px);
 }
 
@@ -90,7 +101,7 @@ img {
 .logo {
     flex-shrink: 0;
     color: var(--text);
-    font-size: 25px;
+    font-size: 27px;
     font-weight: 800;
     letter-spacing: -1.2px;
 }
@@ -99,15 +110,37 @@ img {
     color: var(--purple);
 }
 
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    gap: clamp(14px, 2vw, 30px);
+}
+
+.nav-links a {
+    color: #aaa9bc;
+    font-size: 15px;
+    font-weight: 550;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #c5adff;
+}
+
 .header-button,
 .nav-button {
     flex-shrink: 0;
-    padding: 10px 18px;
+    padding: 12px 20px;
     color: var(--text);
     background: #11121b;
     border: 1px solid #35334b;
-    border-radius: 10px;
-    font-size: 13px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 650;
     transition: background 0.2s ease, border-color 0.2s ease;
 }
 
@@ -116,26 +149,6 @@ img {
     background: #1c192a;
     border-color: var(--purple);
 }
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-}
-
-.nav-links a {
-    color: #aaa9bc;
-    font-size: 14px;
-    transition: color 0.2s ease;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    color: #fff;
-}
-
-/* Shared page layout */
 
 main {
     width: min(var(--content-width), 85%);
@@ -164,22 +177,22 @@ section {
 ================================ */
 
 .hero-section {
+    position: relative;
     min-height: 480px;
     padding: 90px 0;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #20202c;
-    position: relative;
     overflow: hidden;
+    border-bottom: 1px solid #20202c;
 }
 
 .hero-section::before {
     content: "";
     position: absolute;
+    top: 0;
+    right: -100px;
     width: 450px;
     height: 450px;
-    right: -100px;
-    top: 0;
     background: radial-gradient(circle, rgba(126, 87, 220, 0.17), transparent 70%);
     pointer-events: none;
 }
@@ -217,7 +230,7 @@ section {
     gap: 13px;
 }
 
-/* Buttons */
+/* Homepage buttons */
 
 .button,
 .primary-button,
@@ -326,13 +339,11 @@ section {
     line-height: 1.8;
 }
 
-/* ================================
-   HOMEPAGE CLOSING SECTION
-================================ */
+/* Homepage closing panel */
 
 .closing-section {
-    padding: 75px 25px;
     margin: 55px 0;
+    padding: 75px 25px;
     text-align: center;
     background: radial-gradient(ellipse at top, #1b1530, #101117 70%);
     border: 1px solid var(--border);
@@ -379,7 +390,7 @@ section {
 }
 
 /* ================================
-   GAMES PAGE SECTION HEADINGS
+   GAMES PAGE HEADINGS
 ================================ */
 
 .section-heading {
@@ -407,8 +418,6 @@ section {
     font-size: 14px;
 }
 
-/* Give the games collection more space below navigation */
-
 .games-section {
     padding-top: 100px;
 }
@@ -416,8 +425,6 @@ section {
 .categories-section {
     padding-top: 65px;
 }
-
-/* Collection count, if used elsewhere */
 
 .collection-count {
     padding: 8px 11px;
@@ -455,44 +462,46 @@ section {
 }
 
 .game-art {
-    height: 170px;
     position: relative;
+    height: 170px;
     display: grid;
     place-items: center;
     overflow: hidden;
 }
+
 .game-cover {
     position: absolute;
+    z-index: 0;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 0;
 }
+
 .game-art::before,
 .game-art::after {
     content: "";
     position: absolute;
+    z-index: 1;
     border-radius: 50%;
+    pointer-events: none;
 }
 
 .game-art::before {
-    width: 180px;
-    height: 180px;
     top: -65px;
     right: -35px;
+    width: 180px;
+    height: 180px;
     border: 1px solid rgba(255, 255, 255, 0.22);
 }
 
 .game-art::after {
-    width: 160px;
-    height: 160px;
     bottom: -100px;
     left: -55px;
+    width: 160px;
+    height: 160px;
     background: rgba(255, 255, 255, 0.08);
 }
-
-/* Game artwork backgrounds */
 
 .art-adventure {
     background: linear-gradient(145deg, #7f9dba, #314f75 48%, #1c1c37);
@@ -511,13 +520,13 @@ section {
 }
 
 .art-label {
-    z-index: 2;
     position: absolute;
+    z-index: 2;
     top: 13px;
     left: 13px;
     padding: 6px 8px;
     color: #fff;
-    background: rgba(9, 9, 17, 0.55);
+    background: rgba(9, 9, 17, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 6px;
     font-size: 9px;
@@ -526,7 +535,7 @@ section {
 
 .art-visual {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     color: rgba(255, 255, 255, 0.9);
     font-size: 66px;
     font-weight: 900;
@@ -608,10 +617,10 @@ section {
 
 .category-icon {
     width: 32px;
+    flex-shrink: 0;
     color: #ad8aff;
     font-size: 26px;
     text-align: center;
-    flex-shrink: 0;
 }
 
 .category-card > span:nth-child(2) {
@@ -636,54 +645,65 @@ section {
 
 .responsible-panel {
     margin: 65px 0 55px;
-    padding: 28px 20px;
+    padding: 30px 24px;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
-    background: linear-gradient(110deg, #101117, #0c0d13);
+    align-items: stretch;
+    gap: 22px;
+    background:
+        radial-gradient(ellipse at top left, rgba(120, 83, 200, 0.09), transparent 65%),
+        linear-gradient(120deg, #101117, #0c0d13);
     border: 1px solid var(--border);
-    border-radius: 15px;
+    border-radius: 20px;
 }
 
 .responsible-item {
-    padding: 0 10px;
+    min-width: 0;
+    padding: 10px 14px;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 18px;
 }
 
 .responsible-item + .responsible-item {
-    padding-left: 25px;
-    border-left: 1px solid var(--border);
+    padding-left: 26px;
+    border-left: 1px solid #302a41;
 }
 
 .responsible-icon {
-    width: 46px;
-    height: 46px;
-    flex: 0 0 46px;
+    width: 56px;
+    height: 56px;
+    flex: 0 0 56px;
     display: grid;
     place-items: center;
     color: var(--purple-light);
-    background: #1a1529;
-    border: 1px solid #44346c;
+    background: rgba(167, 139, 250, 0.09);
+    border: 1px solid #57417f;
     border-radius: 50%;
-    font-size: 25px;
+    font-size: 29px;
+}
+
+.responsible-item > div:last-child {
+    min-width: 0;
 }
 
 .responsible-item h3 {
-    margin-bottom: 7px;
-    font-size: 14px;
+    margin-bottom: 9px;
+    color: #f7f5ff;
+    font-size: clamp(18px, 1.2vw, 21px);
+    font-weight: 750;
+    line-height: 1.35;
+    letter-spacing: -0.35px;
 }
 
 .responsible-item p {
-    color: var(--muted);
-    font-size: 11px;
-    line-height: 1.8;
+    max-width: 34ch;
+    color: #c0bdce;
+    font-size: clamp(14px, 1vw, 15px);
+    line-height: 1.75;
 }
 
-/* ================================
-   SHARED INPUTS
-================================ */
+/* Shared controls and keyboard accessibility */
 
 input,
 textarea,
@@ -709,15 +729,299 @@ textarea::placeholder {
     color: #77758c;
 }
 
-/* Keyboard accessibility */
-
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
     outline: 2px solid var(--purple-light);
-    outline-offset: 4px;
+    outline-offset: 3px;
+}
+
+/* ================================
+   GAMESAFE SIGN-IN AND SIGN-UP
+================================ */
+
+.signin-page {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    background:
+        radial-gradient(ellipse at 50% 35%, rgba(132, 92, 255, 0.09), transparent 55%),
+        #08090d;
+    color: #f7f5ff;
+    font-family: Poppins, Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.signin-header {
+    width: min(1200px, calc(100% - 48px));
+    min-height: 68px;
+    flex: 0 0 68px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.signin-logo {
+    color: #f7f5ff;
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.signin-logo span {
+    color: var(--purple);
+}
+
+.back-home {
+    color: #c3bfd2;
+    font-size: 13px;
+    transition: color 0.2s ease;
+}
+
+.back-home:hover {
+    color: var(--purple-light);
+}
+
+.signin-main {
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    flex: 1 0 auto;
+    margin: 0;
+    padding: 14px 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signin-card {
+    width: min(100%, 440px);
+    margin: 0 auto;
+    padding: 24px 28px;
+    overflow-wrap: anywhere;
+    background: linear-gradient(145deg, rgba(17, 17, 26, 0.98), rgba(13, 13, 20, 0.98));
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.24);
+}
+
+.signin-icon {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 11px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    background: linear-gradient(135deg, #a78bfa, #7045df);
+    border-radius: 11px;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.signin-eyebrow {
+    margin-bottom: 7px;
+    color: #b59aff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.signin-card h1 {
+    margin: 0 0 9px;
+    color: #f7f5ff;
+    font-size: clamp(27px, 3vw, 34px);
+    font-weight: 800;
+    line-height: 1.19;
+    letter-spacing: -1.15px;
+}
+
+.signin-card h1 span {
+    color: var(--purple-light);
+}
+
+.signin-description {
+    margin: 0 0 15px;
+    color: #aaa8bc;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+#signin-form,
+#signup-form {
+    margin: 0;
+}
+
+#signin-form label,
+#signup-form label {
+    display: block;
+    margin: 9px 0 4px;
+    color: #e8e5f5;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#signin-form input,
+#signup-form input {
+    display: block;
+    width: 100%;
+    min-height: 43px;
+    margin: 0 0 7px;
+    padding: 10px 12px;
+    color: #f7f5ff;
+    background: #0d0c13;
+    border: 1px solid #302d40;
+    border-radius: 9px;
+    font-size: 12px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#signin-form input::placeholder,
+#signup-form input::placeholder {
+    color: #77748c;
+}
+
+#signin-form input:focus,
+#signup-form input:focus {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.1);
+}
+
+.signin-button {
+    width: 100%;
+    min-height: 44px;
+    margin-top: 8px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    color: #100b20;
+    background: var(--purple);
+    border: 0;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 800;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.signin-button span {
+    font-size: 18px;
+}
+
+.signin-button:hover {
+    background: #bba6ff;
+    box-shadow: 0 7px 24px rgba(167, 139, 250, 0.16);
+    transform: translateY(-1px);
+}
+
+#signin-message,
+#signup-message {
+    min-height: 0;
+    margin: 0;
+    color: #ff9999;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+#signin-message:not(:empty),
+#signup-message:not(:empty) {
+    margin-top: 10px;
+    padding: 9px 11px;
+    background: rgba(167, 139, 250, 0.07);
+    border: 1px solid rgba(167, 139, 250, 0.16);
+    border-radius: 8px;
+}
+
+.signin-footer {
+    margin: 13px 0 0;
+    color: #c7c2d5;
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+.signin-footer a {
+    color: var(--purple-light);
+    font-weight: 700;
+}
+
+.signin-footer a:hover {
+    text-decoration: underline;
+}
+
+.signin-note {
+    margin: 9px 0 0;
+    color: #777286;
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+/* On shorter windows, keep the top of the card visible instead of centering
+   a tall form partly above or below the viewport. Scrolling is allowed only
+   when the content genuinely needs more room. */
+
+@media (max-height: 820px) {
+    .signin-main {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+    .signin-header {
+        width: calc(100% - 32px);
+        min-height: 64px;
+        flex-basis: 64px;
+    }
+
+    .signin-logo {
+        font-size: 21px;
+    }
+
+    .back-home {
+        font-size: 12px;
+    }
+
+    .signin-main {
+        padding: 14px 12px 20px;
+        align-items: flex-start;
+    }
+
+    .signin-card {
+        width: 100%;
+        max-width: 440px;
+        padding: 22px 19px;
+        border-radius: 17px;
+    }
+
+    .signin-card h1 {
+        font-size: clamp(26px, 7vw, 32px);
+    }
+}
+
+@media (max-width: 360px) {
+    .signin-header {
+        width: calc(100% - 24px);
+        gap: 10px;
+    }
+
+    .signin-logo {
+        font-size: 19px;
+    }
+
+    .back-home {
+        font-size: 11px;
+    }
+
+    .signin-card {
+        padding: 20px 16px;
+    }
 }
 
 /* ================================
@@ -748,12 +1052,33 @@ select:focus-visible {
 
     .responsible-panel {
         grid-template-columns: 1fr;
+        padding: 24px 18px;
+        gap: 14px;
     }
 
     .responsible-item + .responsible-item {
-        padding: 20px 10px 0;
+        padding: 16px 10px 0;
         border-top: 1px solid var(--border);
         border-left: none;
+    }
+}
+
+/* ================================
+   RESPONSIVE NAVIGATION
+================================ */
+
+@media (max-width: 850px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+
+    .navbar .nav-links {
+        flex-wrap: wrap;
+        flex: 1 1 100%;
+        gap: 12px 20px;
     }
 }
 
@@ -805,8 +1130,6 @@ select:focus-visible {
         grid-template-columns: 1fr;
     }
 
-    /* Stack heading content on smaller screens */
-
     .section-heading {
         align-items: flex-start;
         flex-direction: column;
@@ -837,20 +1160,32 @@ select:focus-visible {
     }
 
     .closing-section {
-        padding: 55px 18px;
         margin: 40px 0;
+        padding: 55px 18px;
     }
 
     .site-footer,
     .footer {
+        padding: 25px 5%;
         flex-direction: column;
         align-items: flex-start;
-        padding: 25px 5%;
     }
 
     .responsible-panel {
         margin: 45px 0;
-        padding: 22px 12px;
+        padding: 20px 12px;
+    }
+
+    .responsible-item {
+        padding: 10px 6px;
+        gap: 15px;
+    }
+
+    .responsible-icon {
+        width: 48px;
+        height: 48px;
+        flex-basis: 48px;
+        font-size: 25px;
     }
 }
 
@@ -871,918 +1206,18 @@ select:focus-visible {
     }
 }
 
-/* ================================
-   GAMESAFE AUTHENTICATION PAGE
-================================ */
-
-.auth-page {
-    min-height: 100vh;
-    margin: 0;
-    background:
-        radial-gradient(
-            ellipse at 50% 35%,
-            rgba(132, 92, 255, 0.10),
-            transparent 55%
-        ),
-        #08080c;
-    color: #f7f5ff;
-    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-}
-
-/* Authentication header */
-
-.auth-header {
-    width: min(1200px, calc(100% - 48px));
-    min-height: 82px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.auth-header .brand {
-    color: #f7f5ff;
-    font-size: 27px;
-    font-weight: 850;
-    letter-spacing: -1.5px;
-    text-decoration: none;
-}
-
-.auth-header .brand span {
-    color: #a78bfa;
-}
-
-.auth-header p {
-    color: #9290a3;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 2px;
-}
-
-/* Authentication layout */
-
-.auth-main {
-    width: min(calc(100% - 32px), 480px);
-    margin: 0 auto;
-    padding: 64px 0 35px;
-}
-
-.auth-card {
-    padding: 38px;
-    border: 1px solid rgba(180, 155, 255, 0.19);
-    border-radius: 24px;
-    background: rgba(17, 16, 25, 0.88);
-    box-shadow:
-        0 25px 80px rgba(0, 0, 0, 0.3),
-        0 0 55px rgba(139, 92, 246, 0.055);
-}
-
-/* Authentication heading */
-
-.auth-label {
-    display: inline-block;
-    margin-bottom: 17px;
-    color: #b59aff;
-    font-size: 11px;
-    font-weight: 850;
-    letter-spacing: 2.5px;
-}
-
-.auth-heading h1 {
-    margin: 0 0 13px;
-    font-size: clamp(30px, 6vw, 39px);
-    font-weight: 850;
-    letter-spacing: -1.8px;
-    line-height: 1.15;
-}
-
-.auth-heading h1 span {
-    color: #a78bfa;
-}
-
-.auth-heading p {
-    margin: 0;
-    color: #a6a2b5;
-    font-size: 14px;
-    line-height: 1.8;
-}
-
-/* Authentication form */
-
-.auth-form {
-    margin-top: 32px;
-}
-
-.form-group {
-    margin-bottom: 21px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 9px;
-    color: #e8e4f5;
-    font-size: 13px;
-    font-weight: 700;
-}
-
-.form-group input {
-    box-sizing: border-box;
-    width: 100%;
-    min-height: 49px;
-    padding: 0 15px;
-    border: 1px solid #343142;
-    border-radius: 11px;
-    outline: none;
-    background: #0d0c13;
-    color: #f7f5ff;
-    font: inherit;
-    font-size: 14px;
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.form-group input::placeholder {
-    color: #686477;
-}
-
-.form-group input:focus {
-    border-color: #a78bfa;
-    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.12);
-}
-
-/* Remember me and password recovery */
-
-.auth-options {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin: 4px 0 25px;
-}
-
-.remember-option {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: #b6b2c5;
-    font-size: 12px;
-    cursor: pointer;
-}
-
-.remember-option input {
-    accent-color: #a78bfa;
-}
-
-.auth-options a {
-    color: #b59aff;
-    font-size: 12px;
-    text-decoration: none;
-}
-
-.auth-options a:hover {
-    color: #d1c2ff;
-    text-decoration: underline;
-}
-
-/* Sign-in button */
-
-.auth-submit {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    min-height: 51px;
-    padding: 0 18px;
-    border: 0;
-    border-radius: 11px;
-    background: #a78bfa;
-    color: #100b20;
-    font: inherit;
-    font-size: 14px;
-    font-weight: 850;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-}
-
-.auth-submit span {
-    font-size: 21px;
-}
-
-.auth-submit:hover {
-    background: #bba5ff;
-    box-shadow: 0 8px 28px rgba(167, 139, 250, 0.18);
-    transform: translateY(-1px);
-}
-
-.auth-submit:active {
-    transform: translateY(0);
-}
-
-/* Authentication status message */
-
-.auth-message {
-    display: none;
-    margin: 15px 0 0;
-    padding: 12px;
-    border: 1px solid rgba(167, 139, 250, 0.2);
-    border-radius: 9px;
-    background: rgba(167, 139, 250, 0.07);
-    color: #d4c7ff;
-    font-size: 12px;
-    line-height: 1.6;
-}
-
-.auth-message.is-visible {
-    display: block;
-}
-
-/* Create account */
-
-.auth-divider {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin: 29px 0 20px;
-}
-
-.auth-divider::before,
-.auth-divider::after {
-    flex: 1;
-    height: 1px;
-    background: #302b3c;
-    content: "";
-}
-
-.auth-divider span {
-    color: #777286;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 1.7px;
-}
-
-.create-account {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 48px;
-    padding: 0 15px;
-    border: 1px solid #454052;
-    border-radius: 11px;
-    color: #f0ebff;
-    font-size: 13px;
-    font-weight: 750;
-    text-decoration: none;
-    transition: border-color 0.2s, background 0.2s;
-}
-
-.create-account span {
-    color: #b59aff;
-    font-size: 19px;
-}
-
-.create-account:hover {
-    border-color: #a78bfa;
-    background: rgba(167, 139, 250, 0.06);
-}
-
-/* Authentication footer */
-
-.auth-footer {
-    margin: 23px 0 0;
-    color: #777286;
-    font-size: 11px;
-    line-height: 1.7;
-    text-align: center;
-}
-
-.auth-bottom {
-    margin: 28px 0 0;
-    color: #6f687f;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 2.5px;
-    text-align: center;
-}
-
-/* Authentication mobile layout */
-
-@media (max-width: 520px) {
-    .auth-header {
-        width: calc(100% - 32px);
-        min-height: 70px;
-    }
-
-    .auth-header .brand {
-        font-size: 24px;
-    }
-
-    .auth-header p {
-        font-size: 8px;
-        letter-spacing: 1px;
-    }
-
-    .auth-main {
-        padding-top: 35px;
-    }
-
-    .auth-card {
-        padding: 25px 21px;
-        border-radius: 19px;
-    }
-
-    .auth-heading h1 {
-        letter-spacing: -1.2px;
-    }
-}
-
 /* Respect reduced-motion preferences */
 
 @media (prefers-reduced-motion: reduce) {
-    .button,
-    .primary-button,
-    .secondary-button,
-    .game-card,
-    .category-arrow,
-    .auth-submit,
-    .form-group input,
-    .create-account {
-        transition: none;
-    }
-
     html {
         scroll-behavior: auto;
     }
-}
 
-/* ================================
-   NAVBAR ALIGNMENT
-================================ */
-
-/* These rules apply to pages using .navbar */
-
-.navbar {
-    justify-content: space-between;
-    gap: 24px;
-    padding-left: max(24px, calc((100% - 1200px) / 2));
-    padding-right: max(24px, calc((100% - 1200px) / 2));
-}
-
-.navbar .nav-links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    gap: clamp(14px, 2vw, 30px);
-}
-
-.navbar .logo,
-.navbar .nav-button {
-    flex-shrink: 0;
-}
-
-.navbar .nav-links a {
-    white-space: nowrap;
-}
-
-@media (max-width: 850px) {
-    .navbar {
-        flex-wrap: wrap;
-        justify-content: center;
-        padding-top: 14px;
-        padding-bottom: 14px;
-    }
-
-    .navbar .nav-links {
-        flex-wrap: wrap;
-        flex: 1 1 100%;
-        gap: 12px 20px;
-    }
-}
-
-/* GameSafe Sign In Page */
-
-.signin-container {
-    min-height: 85vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 20px;
-}
-
-.signin-card {
-    width: 100%;
-    max-width: 430px;
-    padding: 40px;
-    background: #101117;
-    border: 1px solid #292a39;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-}
-
-.signin-card h1 {
-    margin: 0 0 12px;
-    color: #f4f2ff;
-    font-size: 32px;
-    line-height: 1.2;
-}
-
-.signin-description {
-    margin-bottom: 30px;
-    color: #a4a4b5;
-    font-size: 14px;
-    line-height: 1.7;
-}
-
-.signin-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.signin-form label {
-    margin: 0 0 8px;
-    color: #e8e5f5;
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.signin-form input {
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 22px;
-    padding: 14px 15px;
-    background: #171823;
-    border: 1px solid #303143;
-    border-radius: 10px;
-    color: #f4f2ff;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.signin-form input:focus {
-    border-color: #a78bfa;
-    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.12);
-}
-
-.signin-form input::placeholder {
-    color: #747487;
-}
-
-.signin-button {
-    padding: 14px;
-    margin-top: 4px;
-    background: #a78bfa;
-    border: none;
-    border-radius: 10px;
-    color: #08090d;
-    font-size: 14px;
-    font-weight: 800;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-}
-
-.signin-button:hover {
-    background: #bba6ff;
-    transform: translateY(-2px);
-}
-
-.signup-text {
-    margin-top: 26px;
-    color: #a4a4b5;
-    font-size: 13px;
-    text-align: center;
-}
-
-.signup-text a {
-    color: #b49aff;
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.signup-text a:hover {
-    text-decoration: underline;
-}
-
-.back-link {
-    color: #c8c4d8;
-    font-size: 13px;
-    text-decoration: none;
-}
-
-.back-link:hover {
-    color: #b49aff;
-}
-
-@media (max-width: 480px) {
-    .signin-card {
-        padding: 28px 22px;
-    }
-
-    .signin-card h1 {
-        font-size: 27px;
-    }
-}
-
-/* Sign-in page header fix */
-
-.signin-header {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 76px;
-    padding: 20px 7%;
-    box-sizing: border-box;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-}
-
-.signin-header .logo {
-    display: inline-block;
-    margin: 0;
-    font-size: 22px;
-    line-height: 1.4;
-    white-space: nowrap;
-}
-
-.signin-header .back-link {
-    display: inline-block;
-    margin: 0;
-    font-size: 14px;
-    line-height: 1.5;
-    white-space: nowrap;
-}
-
-.signin-container {
-    min-height: calc(100vh - 76px);
-    padding: 24px 20px;
-    box-sizing: border-box;
-}
-
-@media (max-width: 480px) {
-    .signin-header {
-        padding: 18px 20px;
-        gap: 16px;
-    }
-}
-
-/* ================================
-   GAMESAFE UI POLISH
-================================ */
-
-/* Cleaner, more consistent typography */
-body {
-    font-family: Inter, "Segoe UI", Roboto, system-ui, sans-serif;
-    letter-spacing: 0.1px;
-}
-
-/* Main navigation */
-.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    min-height: 82px;
-    background: rgba(8, 9, 13, 0.94);
-    border-bottom: 1px solid rgba(167, 139, 250, 0.14);
-    backdrop-filter: blur(18px);
-}
-
-.navbar .logo {
-    font-size: 27px;
-    font-weight: 850;
-    letter-spacing: -1.3px;
-}
-
-.navbar .nav-links a {
-    font-size: 15px;
-    font-weight: 550;
-    transition: color 0.2s ease;
-}
-
-.navbar .nav-links a:hover,
-.navbar .nav-links a.active {
-    color: #c5adff;
-}
-
-.navbar .nav-button {
-    padding: 12px 20px;
-    font-size: 14px;
-    font-weight: 650;
-    border-radius: 12px;
-}
-
-/* The three information boxes */
-.responsible-panel {
-    margin: 65px 0;
-    padding: 30px 24px;
-    gap: 22px;
-    align-items: stretch;
-    border-radius: 20px;
-    background:
-        radial-gradient(
-            ellipse at top left,
-            rgba(120, 83, 200, 0.09),
-            transparent 65%
-        ),
-        linear-gradient(120deg, #101117, #0c0d13);
-}
-
-.responsible-item {
-    min-width: 0;
-    padding: 10px 14px;
-    gap: 18px;
-    align-items: center;
-}
-
-.responsible-item + .responsible-item {
-    padding-left: 26px;
-    border-left: 1px solid #302a41;
-}
-
-.responsible-icon {
-    width: 56px;
-    height: 56px;
-    flex: 0 0 56px;
-    font-size: 29px;
-    border: 1px solid #57417f;
-    background: rgba(167, 139, 250, 0.09);
-}
-
-.responsible-item > div:last-child {
-    min-width: 0;
-}
-
-.responsible-item h3 {
-    margin-bottom: 9px;
-    color: #f7f5ff;
-    font-size: clamp(18px, 1.2vw, 21px);
-    font-weight: 750;
-    line-height: 1.35;
-    letter-spacing: -0.35px;
-}
-
-.responsible-item p {
-    max-width: 34ch;
-    color: #c0bdce;
-    font-size: clamp(14px, 1vw, 15px);
-    line-height: 1.75;
-}
-
-/* More comfortable spacing on smaller screens */
-@media (max-width: 950px) {
-    .responsible-panel {
-        padding: 26px 18px;
-        gap: 20px;
-    }
-
-    .responsible-item + .responsible-item {
-        padding-left: 10px;
-        border-left: none;
-    }
-}
-
-@media (max-width: 620px) {
-    .navbar {
-        gap: 15px;
-        padding-top: 14px;
-        padding-bottom: 14px;
-    }
-
-    .navbar .logo {
-        font-size: 24px;
-    }
-
-    .navbar .nav-links a {
-        font-size: 14px;
-    }
-
-    .responsible-panel {
-        padding: 20px 12px;
-    }
-
-    .responsible-item {
-        padding: 10px 6px;
-        gap: 15px;
-    }
-
-    .responsible-icon {
-        width: 48px;
-        height: 48px;
-        flex-basis: 48px;
-        font-size: 25px;
-    }
-}
-.navbar {
-    box-shadow:
-        0 8px 35px rgba(167, 139, 250, 0.3),
-        0 0 18px rgba(167, 139, 250, 0.10);
-}
-
-/* ================================
-   SIGN-IN & SIGN-UP LAYOUT FIX
-================================ */
-
-.signin-page {
-    min-height: 100vh;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-.signin-page *,
-.signin-page *::before,
-.signin-page *::after {
-    box-sizing: border-box;
-}
-
-.signin-header {
-    width: min(1200px, calc(100% - 48px));
-    min-height: 82px;
-    margin: 0 auto;
-}
-
-.signin-main {
-    width: 100%;
-    min-height: calc(100vh - 82px);
-    margin: 0;
-    padding: 24px 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.signin-card {
-    width: min(100%, 480px);
-    margin: 0 auto;
-    padding: 32px;
-}
-
-.signin-card h1 {
-    line-height: 1.2;
-}
-
-.signin-card form {
-    margin-top: 24px;
-}
-
-.signin-card form label {
-    display: block;
-    margin: 12px 0 6px;
-}
-
-.signin-card form input {
-    display: block;
-    margin-bottom: 10px;
-}
-
-.signin-card .signin-button {
-    margin-top: 10px;
-}
-
-.signin-footer {
-    margin-top: 16px;
-    line-height: 1.6;
-}
-
-.signin-note {
-    margin-top: 14px;
-    line-height: 1.6;
-}
-
-@media (max-width: 600px) {
-    .signin-header {
-        width: calc(100% - 32px);
-        min-height: 70px;
-    }
-
-    .signin-main {
-        min-height: calc(100vh - 70px);
-        padding: 20px 16px;
-        align-items: flex-start;
-    }
-
-    .signin-card {
-        padding: 24px 20px;
-    }
-}
-
-@media (max-height: 760px) and (min-width: 601px) {
-    .signin-main {
-        align-items: flex-start;
-    }
-}
-
-/* GameSafe authentication polish */
-
-.signin-page {
-    overflow-x: hidden;
-}
-
-.signin-header {
-    min-height: 70px;
-}
-
-.signin-main {
-    min-height: calc(100vh - 70px);
-    padding: 20px 16px 28px;
-    align-items: center;
-}
-
-.signin-card {
-    width: min(100%, 460px);
-    padding: 28px 30px;
-    border-radius: 20px;
-    background: linear-gradient(145deg, #111119, #0d0d13);
-    border: 1px solid rgba(167, 139, 250, 0.22);
-    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.25);
-}
-
-.signin-card .signin-icon {
-    width: 42px;
-    height: 42px;
-    display: grid;
-    place-items: center;
-    margin-bottom: 14px;
-    border-radius: 12px;
-    color: #fff;
-    background: linear-gradient(135deg, #a78bfa, #7045df);
-    font-size: 22px;
-    font-weight: 800;
-}
-
-.signin-card .signin-eyebrow {
-    margin-bottom: 9px;
-    font-size: 10px;
-    letter-spacing: 2px;
-}
-
-.signin-card h1 {
-    margin: 0 0 10px;
-    font-size: clamp(27px, 3vw, 35px);
-    line-height: 1.2;
-    letter-spacing: -1px;
-}
-
-.signin-card .signin-description {
-    margin-bottom: 20px;
-    font-size: 13px;
-    line-height: 1.6;
-}
-
-.signin-card form {
-    margin-top: 0;
-}
-
-.signin-card form label {
-    margin: 10px 0 5px;
-    font-size: 13px;
-}
-
-.signin-card form input {
-    min-height: 44px;
-    padding: 10px 12px;
-    margin-bottom: 7px;
-    font-size: 13px;
-}
-
-.signin-card .signin-button {
-    min-height: 44px;
-    margin-top: 10px;
-    padding: 11px 17px;
-}
-
-.signin-card .signin-footer,
-.signin-card .signin-note {
-    font-size: 12px;
-    line-height: 1.6;
-}
-
-.signin-card .signin-footer {
-    margin-top: 15px;
-}
-
-.signin-card .signin-note {
-    margin-top: 10px;
-}
-
-@media (max-width: 600px) {
-    .signin-main {
-        min-height: calc(100vh - 70px);
-        padding: 18px 14px 24px;
-        align-items: flex-start;
-    }
-
-    .signin-card {
-        padding: 24px 20px;
-    }
-}
-
-@media (max-height: 800px) {
-    .signin-main {
-        align-items: flex-start;
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
     }
 }
