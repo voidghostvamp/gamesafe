@@ -1582,3 +1582,96 @@ body {
         0 8px 35px rgba(167, 139, 250, 0.3),
         0 0 18px rgba(167, 139, 250, 0.10);
 }
+
+/* ================================
+   SIGN-IN & SIGN-UP LAYOUT FIX
+================================ */
+
+.signin-page {
+    min-height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.signin-page *,
+.signin-page *::before,
+.signin-page *::after {
+    box-sizing: border-box;
+}
+
+.signin-header {
+    width: min(1200px, calc(100% - 48px));
+    min-height: 82px;
+    margin: 0 auto;
+}
+
+.signin-main {
+    width: 100%;
+    min-height: calc(100vh - 82px);
+    margin: 0;
+    padding: 24px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signin-card {
+    width: min(100%, 480px);
+    margin: 0 auto;
+    padding: 32px;
+}
+
+.signin-card h1 {
+    line-height: 1.2;
+}
+
+.signin-card form {
+    margin-top: 24px;
+}
+
+.signin-card form label {
+    display: block;
+    margin: 12px 0 6px;
+}
+
+.signin-card form input {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.signin-card .signin-button {
+    margin-top: 10px;
+}
+
+.signin-footer {
+    margin-top: 16px;
+    line-height: 1.6;
+}
+
+.signin-note {
+    margin-top: 14px;
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    .signin-header {
+        width: calc(100% - 32px);
+        min-height: 70px;
+    }
+
+    .signin-main {
+        min-height: calc(100vh - 70px);
+        padding: 20px 16px;
+        align-items: flex-start;
+    }
+
+    .signin-card {
+        padding: 24px 20px;
+    }
+}
+
+@media (max-height: 760px) and (min-width: 601px) {
+    .signin-main {
+        align-items: flex-start;
+    }
+}
