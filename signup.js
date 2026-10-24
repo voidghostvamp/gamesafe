@@ -5,6 +5,8 @@ const form = document.getElementById("signup-form");
 const message = document.getElementById("signup-message");
 const submitButton = form.querySelector('button[type="submit"]');
 
+const GAMESAFE_URL = "https://voidghostvamp.github.io/gamesafe/";
+
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -40,6 +42,7 @@ form.addEventListener("submit", async (event) => {
             email,
             password,
             options: {
+                emailRedirectTo: GAMESAFE_URL,
                 data: {
                     username: username
                 }
@@ -55,17 +58,17 @@ form.addEventListener("submit", async (event) => {
         if (data.session) {
             message.textContent =
                 "Account created successfully! You can now sign in.";
-            form.reset();
         } else {
             message.textContent =
                 "Account created! Check your email for a confirmation link.";
-            form.reset();
         }
+
+        form.reset();
 
     } catch (error) {
         message.style.color = "#fca5a5";
 
-        if (error.message.toLowerCase().includes("already registered")) {
+        if (error.message?.toLowerCase().includes("already registered")) {
             message.textContent =
                 "This email is already registered. Try signing in.";
         } else {
