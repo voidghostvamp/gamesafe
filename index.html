@@ -1,8 +1,8 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <script async src="https://clicktag.io/latest.js" data-hostname="voidghostvamp.github.io" data-verify="tt-verify-3dc3d586cda34029ba68f7a8d4b435c2"></script>
+    <script async src="https://clicktag.io/latest.js" data-hostname="voidghostvamp.github.io" data-verify="tt-verify-3dc3d586cda34029ba68f7a8d4b435c2"></script>
     <meta name="google-site-verification" content="UzLrV-4AFSS6kIqzw9CiGwNvHxpUOqqBNGoeSu82Of0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,79 @@
 
     <link rel="icon" type="image/svg+xml" href="./favicon.svg">
     <link rel="stylesheet" href="./style.css">
+
+    <style>
+        /* Authentication navigation */
+        .nav-auth {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .nav-auth a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 17px;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: 0.2s ease;
+        }
+
+        .nav-signin {
+            color: #f4f3fb;
+            border: 1px solid #393347;
+            background: transparent;
+        }
+
+        .nav-signin:hover {
+            border-color: #a855f7;
+            color: #c084fc;
+        }
+
+        .nav-signup {
+            color: #ffffff;
+            background: #7c3aed;
+            border: 1px solid #7c3aed;
+        }
+
+        .nav-signup:hover {
+            background: #6d28d9;
+            box-shadow: 0 0 16px #7c3aed44;
+        }
+
+        @media (max-width: 900px) {
+            .navbar {
+                flex-wrap: wrap;
+                gap: 14px;
+            }
+
+            .nav-links {
+                order: 3;
+                width: 100%;
+                flex-wrap: wrap;
+            }
+
+            .nav-auth {
+                margin-left: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-auth {
+                gap: 7px;
+            }
+
+            .nav-auth a {
+                padding: 8px 11px;
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -29,6 +102,11 @@
             <a href="./games.html#categories">Categories</a>
             <a href="#responsible">Play Responsibly</a>
         </nav>
+
+        <div class="nav-auth">
+            <a href="./signin.html" class="nav-signin">Sign In</a>
+            <a href="./signup.html" class="nav-signup">Sign Up</a>
+        </div>
 
         <a href="./games.html#games" class="nav-button">Explore</a>
     </header>
@@ -153,3 +231,4 @@
 
 </body>
 </html>
+```
