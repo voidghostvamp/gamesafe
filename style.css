@@ -1221,3 +1221,108 @@ select:focus-visible {
         animation-iteration-count: 1 !important;
     }
 }
+
+/* ================================
+   SIGN IN & SIGN UP NAVIGATION
+================================ */
+
+.nav-auth {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.nav-auth a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 650;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.nav-signin {
+    color: var(--text);
+    background: transparent;
+    border: 1px solid var(--border);
+}
+
+.nav-signin:hover {
+    color: var(--purple-light);
+    border-color: var(--purple);
+}
+
+.nav-signup {
+    color: #ffffff;
+    background: var(--purple-dark);
+    border: 1px solid var(--purple-dark);
+}
+
+.nav-signup:hover {
+    background: #8b65df;
+    border-color: #8b65df;
+    box-shadow: 0 0 16px rgba(167, 139, 250, 0.18);
+}
+
+/* Responsive navigation */
+
+@media (max-width: 950px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 14px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+
+    .navbar .nav-links {
+        order: 3;
+        flex: 1 1 100%;
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 12px 22px;
+    }
+
+    .navbar .nav-auth {
+        order: 2;
+        margin-left: auto;
+    }
+
+    .navbar > .nav-button {
+        order: 4;
+    }
+}
+
+@media (max-width: 500px) {
+    .navbar {
+        column-gap: 10px;
+    }
+
+    .nav-auth {
+        gap: 6px;
+    }
+
+    .nav-auth a {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .navbar > .nav-button {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+
+    .navbar .nav-links {
+        gap: 10px 16px;
+    }
+
+    .navbar .nav-links a {
+        font-size: 13px;
+    }
+}
