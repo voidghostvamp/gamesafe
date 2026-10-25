@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,13 +45,15 @@
 
             <form id="signin-form">
 
-                <label for="email">Email address</label>
+                <label for="identifier">Username or email address</label>
                 <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="you@example.com"
-                    autocomplete="email"
+                    type="text"
+                    id="identifier"
+                    name="identifier"
+                    placeholder="Enter username or email"
+                    autocomplete="username"
+                    autocapitalize="none"
+                    spellcheck="false"
                     required
                 >
 
