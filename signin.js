@@ -27,7 +27,7 @@ form.addEventListener("submit", async (event) => {
         message.style.color = "#86efac";
         message.textContent = "Sign-in successful! Welcome to GameSafe.";
 
-        window.location.href = "games.html";
+      window.location.href = "dashboard.html";
 
     } catch (error) {
         message.style.color = "#fca5a5";
