@@ -1326,3 +1326,200 @@ select:focus-visible {
         font-size: 13px;
     }
 }
+
+/* =========================================
+   GAMESAFE AUTH PAGES — LAYOUT FIX
+   Applies to both sign-in and sign-up
+========================================= */
+
+.signin-page {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.signin-header {
+    min-height: 68px;
+    flex-basis: 68px;
+}
+
+.signin-main {
+    padding: 12px 16px 16px;
+    flex: 1 0 auto;
+}
+
+.signin-card {
+    width: min(100%, 530px);
+    padding: 22px 28px;
+    margin: 0 auto;
+    overflow-wrap: break-word;
+}
+
+/* Keep headings balanced and easier to read */
+.signin-card h1 {
+    font-size: clamp(25px, 2.1vw, 32px);
+    line-height: 1.16;
+    letter-spacing: -0.8px;
+    overflow-wrap: normal;
+    text-wrap: balance;
+}
+
+.signin-eyebrow {
+    margin-bottom: 6px;
+}
+
+.signin-icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 9px;
+}
+
+.signin-description {
+    margin-bottom: 12px;
+    line-height: 1.65;
+}
+
+/* Tighter form spacing, especially for sign-up */
+#signin-form label,
+#signup-form label {
+    margin: 7px 0 3px;
+    font-size: 12px;
+}
+
+#signin-form input,
+#signup-form input {
+    min-height: 42px;
+    margin-bottom: 5px;
+    padding: 9px 12px;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.signin-button {
+    min-height: 44px;
+    margin-top: 7px;
+}
+
+.signin-footer {
+    margin-top: 11px;
+}
+
+.signin-note {
+    margin-top: 7px;
+}
+
+/* Stop Chrome autofill from making inputs pale blue */
+#signin-form input:-webkit-autofill,
+#signup-form input:-webkit-autofill,
+#signin-form input:-webkit-autofill:hover,
+#signup-form input:-webkit-autofill:hover,
+#signin-form input:-webkit-autofill:focus,
+#signup-form input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #f7f5ff;
+    caret-color: #f7f5ff;
+    -webkit-box-shadow: 0 0 0 1000px #0d0c13 inset;
+    box-shadow: 0 0 0 1000px #0d0c13 inset;
+    border: 1px solid #383249;
+}
+
+/* Fit the forms better on normal desktop screens */
+@media (min-width: 701px) and (max-height: 900px) {
+    .signin-main {
+        align-items: flex-start;
+        padding-top: 10px;
+        padding-bottom: 12px;
+    }
+
+    .signin-card {
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+
+    .signin-card h1 {
+        font-size: clamp(25px, 2vw, 31px);
+    }
+
+    .signin-icon {
+        width: 34px;
+        height: 34px;
+        margin-bottom: 7px;
+    }
+
+    .signin-description {
+        margin-bottom: 9px;
+    }
+
+    #signin-form label,
+    #signup-form label {
+        margin-top: 6px;
+    }
+
+    #signin-form input,
+    #signup-form input {
+        min-height: 39px;
+        margin-bottom: 4px;
+    }
+
+    .signin-button {
+        min-height: 42px;
+        margin-top: 5px;
+    }
+
+    .signin-footer {
+        margin-top: 9px;
+    }
+
+    .signin-note {
+        margin-top: 5px;
+    }
+}
+
+/* Mobile layout */
+@media (max-width: 700px) {
+    .signin-header {
+        width: calc(100% - 32px);
+        gap: 12px;
+    }
+
+    .signin-main {
+        align-items: flex-start;
+        padding: 14px 12px 22px;
+    }
+
+    .signin-card {
+        width: 100%;
+        max-width: 530px;
+        padding: 22px 19px;
+        border-radius: 17px;
+    }
+
+    .signin-card h1 {
+        font-size: clamp(25px, 6.5vw, 31px);
+        line-height: 1.2;
+        letter-spacing: -0.7px;
+    }
+
+    #signin-form input,
+    #signup-form input {
+        min-height: 43px;
+    }
+}
+
+/* Very narrow phones */
+@media (max-width: 360px) {
+    .signin-header {
+        width: calc(100% - 24px);
+        gap: 8px;
+    }
+
+    .signin-logo {
+        font-size: 19px;
+    }
+
+    .back-home {
+        font-size: 11px;
+    }
+
+    .signin-card {
+        padding: 19px 15px;
+    }
+}
