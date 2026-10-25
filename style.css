@@ -1415,3 +1415,25 @@ select:focus-visible {
         font-size: 13px;
     }
 }
+
+/* FIX: Keep the complete GameSafe SVG visible */
+.signin-main::after {
+    background-color: #17102c !important;
+    background-image:
+        radial-gradient(
+            ellipse at center,
+            rgba(139, 92, 246, 0.16),
+            transparent 72%
+        ),
+        url("./auth-game-art.svg") !important;
+    background-size: cover, contain !important;
+    background-position: center center, center center !important;
+    background-repeat: no-repeat, no-repeat !important;
+}
+
+/* Give the artwork enough room on desktop */
+@media (min-width: 761px) {
+    .signin-main::after {
+        min-height: 560px;
+    }
+}
